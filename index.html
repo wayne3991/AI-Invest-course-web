@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4小时成为AI时代投资人</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #2563eb;
+      --blue-light: #3b82f6;
+      --blue-dark: #1d4ed8;
+      --blue-soft: #eff6ff;
+      --blue-pale: #dbeafe;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --white: #ffffff;
+      --radius-sm: 8px;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.04);
+      --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md: 0 4px 6px rgba(0,0,0,.04), 0 2px 4px rgba(0,0,0,.04);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,.04), 0 4px 10px rgba(0,0,0,.04);
+      --max-width: 960px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+      color: var(--gray-800);
+      background: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* === Hero === */
+    .hero {
+      position: relative;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      padding: 80px 40px;
+      background: url('banner2.png') center/cover no-repeat;
+      background-position: 55% center;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(255,255,255,.92) 30%, rgba(255,255,255,.4) 60%, rgba(255,255,255,.1) 100%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-width);
+      width: 100%;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .hero-text { max-width: 500px; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #C57D51;
+      background: #F8F6F1;
+      border: 1px solid #E5D3BE;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+      letter-spacing: .5px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 800;
+      color: var(--gray-900);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+    .hero h1 span { color: var(--blue); }
+    .hero-lead {
+      font-size: 17px;
+      color: var(--gray-500);
+      max-width: 540px;
+      margin-bottom: 36px;
+      line-height: 1.8;
+    }
+    .hero-lead strong { color: var(--gray-700); }
+    .hero-pills {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 0;
+      max-width: 560px;
+    }
+    .hero-pill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      padding: 14px 8px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray-600);
+      box-shadow: var(--shadow-sm);
+      transition: all .2s;
+      text-align: center;
+    }
+    .hero-pill:hover { border-color: var(--blue-pale); box-shadow: var(--shadow); }
+    .hero-pill-num {
+      display: block;
+      font-weight: 800;
+      color: var(--blue);
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    /* === Section Common === */
+    .section {
+      padding: 80px 24px;
+    }
+    .section-inner { max-width: var(--max-width); margin: 0 auto; }
+    .section-eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 16px;
+      letter-spacing: -.5px;
+    }
+    .h2-lined {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .h2-lined::before,
+    .h2-lined::after {
+      content: '';
+      height: 1px;
+      background: #E5D3BE;
+      flex: 0 0 60px;
+    }
+    .section-sub {
+      font-size: 16px;
+      color: var(--gray-500);
+      max-width: 560px;
+    }
+
+    /* === Reasons === */
+    .reasons { background: var(--white); }
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .reason-card {
+      position: relative;
+      background-color: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius-lg);
+      padding: 20px 52px 36px 24px;
+      transition: all .3s;
+      min-height: 220px;
+      text-align: left;
+      overflow: hidden;
+    }
+    .reason-card::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: right bottom;
+      background-size: auto 61%;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .reason-card:nth-child(1)::after { background-image: url('Slice 1.png'); }
+    .reason-card:nth-child(2)::after { background-image: url('Slice 2.png'); }
+    .reason-card:nth-child(3)::after { background-image: url('Slice 3.png'); }
+    .reason-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--gray-200);
+      transform: translateY(-2px);
+    }
+    .reason-index {
+      position: relative;
+      z-index: 1;
+      font-size: 50px;
+      font-weight: 700;
+      font-style: italic;
+      color: #EED9C3;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      max-width: 180px;
+    }
+    .reason-card h3 {
+      position: relative;
+      z-index: 1;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 10px;
+      max-width: 180px;
+    }
+    .reason-card p {
+      position: relative;
+      z-index: 1;
+      font-size: 14px;
+      color: var(--gray-500);
+      line-height: 1.8;
+      max-width: 180px;
+    }
+    .reason-card p strong { color: var(--gray-700); }
+
+    /* === Lessons === */
+    .lessons { background: var(--gray-50); }
+    .lessons-list { margin-top: 48px; display: flex; flex-direction: column; gap: 20px; }
+    .lesson-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      border: 1px solid var(--gray-100);
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      transition: all .3s;
+    }
+    .lesson-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--gray-200);
+    }
+    .lesson-num {
+      flex-shrink: 0;
+      width: 240px;
+      height: 240px;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .lesson-num img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .lesson-body { flex: 1; }
+    .lesson-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .lesson-header h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gray-900);
+    }
+    .lesson-time {
+      font-size: 12px;
+      font-weight: 600;
+      color: #C57D52;
+      background: #F9F6F2;
+      padding: 3px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .lesson-summary {
+      font-size: 14px;
+      color: var(--gray-500);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+    .lesson-points {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+      margin-bottom: 16px;
+    }
+    .lesson-point {
+      font-size: 13px;
+      color: var(--gray-600);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .lesson-point::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue-light);
+    }
+    .lesson-point strong { color: var(--gray-800); }
+    .lesson-outcome {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue-dark);
+      background: var(--blue-soft);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+    }
+    .lesson-outcome svg { flex-shrink: 0; }
+
+    .learn-result {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 48px;
+      padding: 36px 40px;
+      background: linear-gradient(135deg, var(--blue-soft) 0%, #f0f7ff 50%, var(--blue-soft) 100%);
+      border: 2px solid var(--blue-pale);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 20px rgba(37,99,235,0.12);
+      color: var(--gray-800);
+    }
+    .learn-result-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--blue-dark);
+      letter-spacing: 1px;
+    }
+    .learn-result-subtitle {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gray-600);
+    }
+    .learn-result-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .learn-result-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--gray-700);
+    }
+    .learn-result-item svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: var(--blue);
+    }
+    .learn-result-item strong {
+      color: var(--gray-800);
+    }
+    .learn-result-footer {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gray-700);
+      padding-top: 4px;
+      line-height: 1.8;
+    }
+    .learn-result-closing {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--blue-dark);
+      line-height: 1.8;
+    }
+
+    /* === Instructors === */
+    .instructors { background: var(--white); }
+    .instructors-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .instructor-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all .3s;
+    }
+    .instructor-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--gray-200);
+    }
+    .instructor-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .instructor-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: var(--radius);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .instructor-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+    .instructor-info { flex: 1; }
+    .instructor-info h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 6px;
+    }
+    .instructor-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 0;
+    }
+    .instructor-tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--blue-dark);
+      background: var(--blue-soft);
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+    .instructor-bio {
+      font-size: 13px;
+      color: var(--gray-500);
+      line-height: 1.8;
+    }
+
+    /* === CTA === */
+    .cta {
+      background-color: var(--blue-dark);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cline x1='30' y1='0' x2='30' y2='60' stroke='rgba(255,255,255,0.07)' stroke-width='0.5'/%3E%3Cline x1='0' y1='30' x2='60' y2='30' stroke='rgba(255,255,255,0.07)' stroke-width='0.5'/%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,0.18)'/%3E%3Ccircle cx='30' cy='0' r='1' fill='rgba(255,255,255,0.08)'/%3E%3Ccircle cx='30' cy='60' r='1' fill='rgba(255,255,255,0.08)'/%3E%3Ccircle cx='0' cy='30' r='1' fill='rgba(255,255,255,0.08)'/%3E%3Ccircle cx='60' cy='30' r='1' fill='rgba(255,255,255,0.08)'/%3E%3C/svg%3E"), linear-gradient(180deg, var(--blue) 0%, var(--blue-dark) 100%);
+      color: white;
+      padding: 72px 24px;
+    }
+    .cta-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      gap: 56px;
+      align-items: center;
+    }
+    .cta-copy { flex: 1; }
+    .cta-copy h2 {
+      font-size: clamp(24px, 4vw, 32px);
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: white;
+    }
+    .cta-copy > p {
+      font-size: 15px;
+      opacity: .85;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+    .cta-copy > p strong { opacity: 1; }
+    .cta-benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .cta-benefit {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .cta-benefit-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+    .cta-benefit-text strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+    .cta-benefit-text span {
+      font-size: 13px;
+      opacity: .75;
+    }
+    .cta-qr {
+      flex-shrink: 0;
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,.15);
+    }
+    .cta-qr-placeholder {
+      width: 180px;
+      height: 180px;
+      background: var(--gray-100);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-400);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .cta-qr small {
+      font-size: 12px;
+      color: var(--gray-500);
+    }
+
+    /* === Floating CTA Card === */
+    .floating-cta {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 32px;
+      min-width: 340px;
+      white-space: nowrap;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-radius: 100px;
+      box-shadow: 0 4px 24px rgba(37,99,235,0.35);
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      border: none;
+    }
+    .floating-cta:hover {
+      transform: translateX(-50%) translateY(-2px);
+      box-shadow: 0 6px 32px rgba(37,99,235,0.45);
+    }
+    .floating-cta svg {
+      flex-shrink: 0;
+    }
+
+    /* === Bottom Banner === */
+    .banner-promo {
+      width: 100%;
+      padding: 0 0 64px;
+    }
+    .banner-promo-inner {
+      background: var(--blue-soft);
+      padding: 28px 32px;
+      text-align: center;
+      border-top: 1px solid var(--blue-pale);
+      border-bottom: 1px solid var(--blue-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .banner-promo-inner p {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--blue-dark);
+    }
+    .banner-promo-inner svg {
+      flex-shrink: 0;
+      color: var(--blue);
+    }
+
+    /* === Responsive === */
+    @media (max-width: 768px) {
+      .hero {
+        min-height: auto;
+        padding: 48px 20px;
+        background-position: 60% center;
+      }
+      .hero::after { background: linear-gradient(180deg, rgba(255,255,255,.94) 40%, rgba(255,255,255,.65) 70%, rgba(255,255,255,.25) 100%); }
+      .hero-text { max-width: 100%; text-align: center; }
+      .hero-pills { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+      .reasons-grid { grid-template-columns: 1fr; }
+      .lesson-card { flex-direction: column; gap: 16px; }
+      .lesson-points { grid-template-columns: 1fr; }
+      .instructors-grid { grid-template-columns: 1fr; }
+      .instructor-card { align-items: center; text-align: center; }
+      .instructor-header { flex-direction: column; align-items: center; text-align: center; }
+      .instructor-tags { justify-content: center; }
+      .cta-inner { flex-direction: column; text-align: center; }
+      .section { padding: 56px 20px; }
+      .floating-cta {
+        min-width: auto;
+        width: calc(100vw - 32px);
+        max-width: 420px;
+        padding: 14px 20px;
+        font-size: 14px;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== Hero ====== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="hero-eyebrow">实战小班 · 零编程门槛 · 面向投资者</p>
+        <h1>4小时成为<br><span>AI时代</span>投资人</h1>
+        <p class="hero-lead">
+          不必会写代码，4小时用成熟AI工具，打造出类似「慢富投资大师」的专属知识库——让你电脑中的<strong>资料活起来，越用越值钱</strong>，成为善用AI、洞察AI机遇的<strong>AI时代投资人</strong>。
+        </p>
+        <div class="hero-pills">
+          <div class="hero-pill"><span class="hero-pill-num">4h</span><span>高密度实操</span></div>
+          <div class="hero-pill"><span class="hero-pill-num">0</span><span>行代码入门</span></div>
+          <div class="hero-pill"><span class="hero-pill-num">1</span><span>个专属知识库</span></div>
+          <div class="hero-pill"><span class="hero-pill-num">∞</span><span>可持续迭代</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 三大理由 ====== -->
+  <section class="section reasons" id="why">
+    <div class="section-inner">
+      <p class="section-eyebrow" style="color:#C57D51">先回答一个关键问题</p>
+      <h2 class="h2-lined">为什么要上这门课？</h2>
+      <div class="reasons-grid">
+        <div class="reason-card">
+          <div class="reason-index">01</div>
+          <h3>不被AI时代淘汰</h3>
+          <p>AI 时代只有两类人：会用 AI 的、不会用 AI 的。越早掌握 AI，越能把时间从重复劳动转向高价值判断，实现<strong>百倍效率提升</strong>。</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-index">02</div>
+          <h3>动手实践抓住AI红利</h3>
+          <p>只看不练，很难形成能力。亲手搭建专属知识库，才能真正理解 AI 的威力，并把研究与决策做成体系，抓住未来的<strong>AI 投资机遇</strong>。</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-index">03</div>
+          <h3>一流实战师资力量</h3>
+          <p>授课老师清华本硕博、基金经理、连续创业者、互联网大厂P9/T9管理者背景，兼具投资、产品、技术实战，<strong>讲得懂原理，给得了落地</strong>。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 课程大纲 ====== -->
+  <section class="section lessons" id="learn">
+    <div class="section-inner">
+      <p class="section-eyebrow" style="color:#C57D51">接下来的问题</p>
+      <h2 class="h2-lined">能学到什么？</h2>
+      <div class="lessons-list">
+
+        <!-- Lesson 1 -->
+        <div class="lesson-card">
+          <div class="lesson-num"><img src="Frame 1.png" alt="第一课配图"></div>
+          <div class="lesson-body">
+            <div class="lesson-header">
+              <h3>第一课：AI、产品与投资</h3>
+              <span class="lesson-time">1小时</span>
+            </div>
+            <p class="lesson-summary">建立 AI 认知与工具判断力，先看懂、再用对，为 AI 时代投资决策打基础。</p>
+            <div class="lesson-points">
+              <div class="lesson-point"><strong>AI前沿</strong> — 从提示词到新一代编程，快速看清 AI 技术脉络与方向</div>
+              <div class="lesson-point"><strong>工具链</strong> — 梳理 NotebookLM、龙虾、Claude Code、Cursor，明确投研适配逻辑</div>
+              <div class="lesson-point"><strong>产品基础</strong> — 围绕投研场景，拆解核心需求与最小可行落地路径</div>
+              <div class="lesson-point"><strong>投资困境</strong> — 直击信息过载，说明 AI 知识库如何提升处理效率与决策质量</div>
+            </div>
+            <div class="lesson-outcome">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              课后收获：建立 AI 与投资关联，实现「看懂、选对、用对」工具
+            </div>
+          </div>
+        </div>
+
+        <!-- Lesson 2 -->
+        <div class="lesson-card">
+          <div class="lesson-num"><img src="Frame 2.png" alt="第二课配图"></div>
+          <div class="lesson-body">
+            <div class="lesson-header">
+              <h3>第二课：慢富投资大师产品实例</h3>
+              <span class="lesson-time">1小时</span>
+            </div>
+            <p class="lesson-summary">用真实项目复盘，掌握从想法到上线的可复制产品化方法。</p>
+            <div class="lesson-points">
+              <div class="lesson-point"><strong>全景复盘</strong> — 以本站为样本，看清知识库从想法到可用版本的整体路径</div>
+              <div class="lesson-point"><strong>闭环思维</strong> — 信息架构—检索体验—转化入口的一体化设计</div>
+              <div class="lesson-point"><strong>迭代原则</strong> — 品牌统一、信息分层、视觉对齐、文案强化等可复用准则</div>
+              <div class="lesson-point"><strong>协同工作流</strong> — 目标→搭建→打磨→优化→上线，沉淀可反复使用的能力</div>
+              <div class="lesson-point"><strong>方法迁移</strong> — 模板化沉淀，迁移至行业库、公司库、主题库等场景</div>
+            </div>
+            <div class="lesson-outcome">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              课后收获：拿到一套可迁移的方法模板
+            </div>
+          </div>
+        </div>
+
+        <!-- Lesson 3 -->
+        <div class="lesson-card">
+          <div class="lesson-num"><img src="Frame 3.png" alt="第三课配图"></div>
+          <div class="lesson-body">
+            <div class="lesson-header">
+              <h3>第三课：手把手打造专属知识库</h3>
+              <span class="lesson-time">2小时</span>
+            </div>
+            <p class="lesson-summary">跟练完成你的知识库雏形，让电脑资料开始「活起来」。</p>
+            <div class="lesson-points">
+              <div class="lesson-point"><strong>环境</strong> — 工具清单与基础设置，零基础可跟练</div>
+              <div class="lesson-point"><strong>构思</strong> — 功能边界与内容方向，形成专属方案</div>
+              <div class="lesson-point"><strong>实操</strong> — 跟练完成搭建，让资料「活起来」</div>
+              <div class="lesson-point"><strong>答疑</strong> — 一对一扫清卡点，确保落地可用</div>
+            </div>
+            <div class="lesson-outcome">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              课后收获：可持续迭代的个人知识库 1.0
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="learn-result">
+        <div class="learn-result-title">
+          最终收获：掌握AI时代投资技能，带走专属迭代投资知识库
+        </div>
+        <p class="learn-result-subtitle">你学到的不只是操作，而是一种面向AI时代的核心投资能力：</p>
+        <div class="learn-result-list">
+          <div class="learn-result-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 5v2m0 4v3"/><path d="M6 6l2 2m8 8l2 2M6 18l2-2m8-2l2-2"/></svg>
+            <span><strong>AI工具判断力</strong> — 看懂AI技术脉络，选对、用对适合投研的AI工具链，不再被技术浪潮抛下</span>
+          </div>
+          <div class="learn-result-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v14H4z"/><path d="M4 5h16v2H4z"/><path d="M9 11h2v7H9z"/><path d="M13 11h2v7h-2z"/><line x1="8" y1="4" x2="12" y2="2"/><line x1="16" y1="4" x2="12" y2="2"/></svg>
+            <span><strong>知识库搭建能力</strong> — 亲手打造专属投资知识库，让沉睡的资料「活起来」，越用越值钱</span>
+          </div>
+          <div class="learn-result-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 119 9"/><path d="M12 3v6l4-2-4-2"/><path d="M21 15l-3 3-3-3"/><path d="M18 12v6"/></svg>
+            <span><strong>可持续迭代方法论</strong> — 掌握从构思→搭建→打磨→优化的完整工作流，可迁移至行业库、公司库、主题库等任意场景</span>
+          </div>
+          <div class="learn-result-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4c0 2-2 3-4 6-2-3-4-4-4-6a4 4 0 014-4z"/><path d="M7 14h10v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6z"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="18" r="1"/></svg>
+            <span><strong>AI时代投资思维</strong> — 将信息过载转化为决策优势，用AI放大研究与判断的效率，实现百倍杠杆</span>
+          </div>
+        </div>
+        <p class="learn-result-footer">学完即刻拥有：一个真正属于你、可持续迭代的专属投资知识库。</p>
+        <p class="learn-result-closing">更重要的是——你将成为一名善用AI、洞察AI机遇的AI时代投资人。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 讲师团队 ====== -->
+  <section class="section instructors" id="instructors">
+    <div class="section-inner">
+      <p class="section-eyebrow" style="color:#C57D51">授课团队</p>
+      <h2 class="h2-lined">课程讲师</h2>
+      <div class="instructors-grid">
+        <div class="instructor-card">
+          <div class="instructor-header">
+            <div class="instructor-avatar"><img src="封光.png" alt="封光"></div>
+            <div class="instructor-info">
+              <h3>封光 博士</h3>
+              <div class="instructor-tags">
+                <span class="instructor-tag">清华电子工程博士</span>
+                <span class="instructor-tag">联合创始人 / CTO</span>
+                <span class="instructor-tag">搜索与大数据</span>
+              </div>
+            </div>
+          </div>
+          <p class="instructor-bio">清华大学学士、电子工程系博士，研究方向为互联网信息检索，光速守恒联合创始人、CTO。<span style="display:block;margin-top:6px;">历任微软亚洲研究院、百度、CC视频技术总监等职，联合创办价值投资金融大数据平台挖优狗，长期深耕搜索、大数据与金融科技领域。</span></p>
+        </div>
+        <div class="instructor-card">
+          <div class="instructor-header">
+            <div class="instructor-avatar"><img src="胡恒.png" alt="胡恒"></div>
+            <div class="instructor-info">
+              <h3>胡恒 博士</h3>
+              <div class="instructor-tags">
+                <span class="instructor-tag">清华本科</span>
+                <span class="instructor-tag">基金经理</span>
+                <span class="instructor-tag">价值投资科普</span>
+              </div>
+            </div>
+          </div>
+          <p class="instructor-bio">清华大学学士、博士，慢富成长基金经理，菲利普·费雪《成长股获利之道》译者，光速守恒创始人，财经博主（@价值博士）。<span style="display:block;margin-top:6px;">曾任华兴证券投顾部门负责人，京东科技金融产品高级总监，基本面分析工具挖优狗创始人等，长期深耕价值投资、金融分析工具。</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CTA ====== -->
+  <section class="cta" id="contact">
+    <div class="cta-inner">
+      <div class="cta-copy">
+        <h2>添加企业微信 · 立即咨询</h2>
+        <p>扫码添加课程联系人，获取<strong>开课时间、名额与课前准备</strong>。</p>
+        <div class="cta-benefits">
+          <div class="cta-benefit">
+            <div class="cta-benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+            <div class="cta-benefit-text">
+              <strong>小班名额有限</strong>
+              <span>先约先得，优先锁定当期开课席位</span>
+            </div>
+          </div>
+          <div class="cta-benefit">
+            <div class="cta-benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+            <div class="cta-benefit-text">
+              <strong>课前工具包直发</strong>
+              <span>发送完整工具清单，无需自备复杂环境</span>
+            </div>
+          </div>
+          <div class="cta-benefit">
+            <div class="cta-benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+            <div class="cta-benefit-text">
+              <strong>早鸟预定优惠</strong>
+              <span>提前缴纳预定金，享学费立减专属折扣</span>
+            </div>
+          </div>
+          <div class="cta-benefit">
+            <div class="cta-benefit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+            <div class="cta-benefit-text">
+              <strong>专属学员交流群</strong>
+              <span>加入课后交流群，持续答疑解惑与资源共享</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cta-qr">
+        <img src="客服二维码.png" alt="客服二维码" style="width:180px;height:180px;border-radius:8px;object-fit:contain;display:block;margin:0 auto 8px;">
+        <small>企业微信扫码添加</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Bottom ====== -->
+  <div class="banner-promo">
+    <div class="banner-promo-inner">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.5 5.5L19 9l-5.5 1.5L12 16l-1.5-5.5L5 9l5.5-1.5z"/></svg>
+        <p>4小时零基础打造你的专属知识库，成为会用AI的人，抓住AI投资机遇。</p>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.5 5.5L19 9l-5.5 1.5L12 16l-1.5-5.5L5 9l5.5-1.5z"/></svg>
+    </div>
+  </div>
+
+  <!-- ====== Floating CTA ====== -->
+  <button class="floating-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    投资你自己，成为AI受益者
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+
+</body>
+</html>
