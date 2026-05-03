@@ -36,6 +36,38 @@
       --shadow-lg: 0 10px 25px rgba(0,0,0,.04), 0 4px 10px rgba(0,0,0,.04);
       --max-width: 960px;
     }
+    /* === Top Bar === */
+    .top-bar {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, #1e40af 100%);
+      padding: 12px 24px;
+    }
+    .top-bar-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .top-bar-logo {
+      height: 36px;
+    }
+    .top-bar-logo img {
+      height: 100%;
+      width: auto;
+    }
+    .top-bar-slogan {
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-family: 'Inter', sans-serif;
+    }
+    @media (max-width: 480px) {
+      .top-bar { padding: 10px 16px; }
+      .top-bar-logo { height: 28px; }
+      .top-bar-slogan { font-size: 12px; letter-spacing: 1px; }
+    }
+
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
@@ -274,6 +306,19 @@
       height: 100%;
       object-fit: cover;
     }
+    .lesson-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--blue-soft);
+      border: 2px dashed var(--blue-pale);
+      border-radius: var(--radius);
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 600;
+    }
     .lesson-body { flex: 1; }
     .lesson-header {
       display: flex;
@@ -397,6 +442,101 @@
       font-weight: 700;
       color: var(--blue-dark);
       line-height: 1.8;
+    }
+
+    /* === Demo Cases === */
+    .demo-cases {
+      margin-top: 56px;
+    }
+    .demo-cases-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .demo-card {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all .3s;
+    }
+    .demo-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--gray-200);
+    }
+    .demo-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: var(--blue-soft);
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .demo-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 8px;
+    }
+    .demo-card-tagline {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--blue);
+      margin-bottom: 16px;
+    }
+    .demo-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .demo-card li {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.7;
+      padding-left: 18px;
+      position: relative;
+    }
+    .demo-card li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue-light);
+    }
+    .demo-card li strong {
+      color: var(--gray-800);
+    }
+    .demo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      padding: 8px 16px;
+      border: 1px solid var(--blue-pale);
+      border-radius: 100px;
+      background: var(--blue-soft);
+      transition: all .2s;
+    }
+    .demo-link:hover {
+      background: var(--blue-pale);
+      border-color: var(--blue);
+    }
+    .demo-link svg {
+      flex-shrink: 0;
+    }
+    @media (max-width: 768px) {
+      .demo-cases-grid { grid-template-columns: 1fr; }
     }
 
     /* === Instructors === */
@@ -641,6 +781,16 @@
 </head>
 <body>
 
+  <!-- ====== Top Bar ====== -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-logo">
+        <img src="brand-logo-white.svg" alt="Brand Logo">
+      </div>
+      <span class="top-bar-slogan">BEST INVEST BEST EARN</span>
+    </div>
+  </header>
+
   <!-- ====== Hero ====== -->
   <section class="hero">
     <div class="hero-inner">
@@ -697,19 +847,19 @@
           <div class="lesson-num"><img src="Frame 1.png" alt="第一课配图"></div>
           <div class="lesson-body">
             <div class="lesson-header">
-              <h3>第一课：AI、产品与投资</h3>
-              <span class="lesson-time">1小时</span>
+              <h3>第一课：AI 认知革命与投研体系重塑</h3>
+              <span class="lesson-time">0.5小时</span>
             </div>
-            <p class="lesson-summary">建立 AI 认知与工具判断力，先看懂、再用对，为 AI 时代投资决策打基础。</p>
+            <p class="lesson-summary">建立 AI 投研认知框架。</p>
             <div class="lesson-points">
-              <div class="lesson-point"><strong>AI前沿</strong> — 从提示词到新一代编程，快速看清 AI 技术脉络与方向</div>
-              <div class="lesson-point"><strong>工具链</strong> — 梳理 NotebookLM、龙虾、Claude Code、Cursor，明确投研适配逻辑</div>
-              <div class="lesson-point"><strong>产品基础</strong> — 围绕投研场景，拆解核心需求与最小可行落地路径</div>
-              <div class="lesson-point"><strong>投资困境</strong> — 直击信息过载，说明 AI 知识库如何提升处理效率与决策质量</div>
+              <div class="lesson-point"><strong>范式升级</strong> — 理解软件个性化趋势，建立 AI 时代投研新认知</div>
+              <div class="lesson-point"><strong>AI 杠杆</strong> — 将分散资料转为结构化资产，降低查阅与记忆成本</div>
+              <div class="lesson-point"><strong>工具链认知</strong> — 掌握 Cursor + DeepSeek 协作逻辑，快速形成可用生产力</div>
+              <div class="lesson-point"><strong>基础设施意识</strong> — 从「读资料」升级为「检索 + 问答」的长期系统</div>
             </div>
             <div class="lesson-outcome">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              课后收获：建立 AI 与投资关联，实现「看懂、选对、用对」工具
+              课后收获：建立 AI 投研底层认知，明确「工具即杠杆」
             </div>
           </div>
         </div>
@@ -719,20 +869,19 @@
           <div class="lesson-num"><img src="Frame 2.png" alt="第二课配图"></div>
           <div class="lesson-body">
             <div class="lesson-header">
-              <h3>第二课：慢富投资大师产品实例</h3>
-              <span class="lesson-time">1小时</span>
+              <h3>第二课：从设计到落地——双案例实战</h3>
+              <span class="lesson-time">0.5小时</span>
             </div>
-            <p class="lesson-summary">用真实项目复盘，掌握从想法到上线的可复制产品化方法。</p>
+            <p class="lesson-summary">拆解「<a href="https://gurus.congman.club/masters/buffett" target="_blank" style="color:var(--blue);text-decoration:none;">投资大师</a>」与「<a href="https://askboss.congman.club/" target="_blank" style="color:var(--blue);text-decoration:none;">问老板</a>」双案例闭环落地法。</p>
             <div class="lesson-points">
-              <div class="lesson-point"><strong>全景复盘</strong> — 以本站为样本，看清知识库从想法到可用版本的整体路径</div>
-              <div class="lesson-point"><strong>闭环思维</strong> — 信息架构—检索体验—转化入口的一体化设计</div>
-              <div class="lesson-point"><strong>迭代原则</strong> — 品牌统一、信息分层、视觉对齐、文案强化等可复用准则</div>
-              <div class="lesson-point"><strong>协同工作流</strong> — 目标→搭建→打磨→优化→上线，沉淀可反复使用的能力</div>
-              <div class="lesson-point"><strong>方法迁移</strong> — 模板化沉淀，迁移至行业库、公司库、主题库等场景</div>
+              <div class="lesson-point"><strong>投资大师案例</strong> — 完成知识沉淀、检索设计与首版上线</div>
+              <div class="lesson-point"><strong>问老板案例</strong> — 打通问答交互与知识复用的核心链路</div>
+              <div class="lesson-point"><strong>MVP 协作</strong> — 业务提目标，Cursor 出版本，反馈驱动迭代</div>
+              <div class="lesson-point"><strong>稳定性保障</strong> — 处理命中率、模型降级与历史记录等关键问题</div>
             </div>
             <div class="lesson-outcome">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              课后收获：拿到一套可迁移的方法模板
+              课后收获：掌握 AI 产品从 0 到 1 的闭环落地方法
             </div>
           </div>
         </div>
@@ -742,20 +891,82 @@
           <div class="lesson-num"><img src="Frame 3.png" alt="第三课配图"></div>
           <div class="lesson-body">
             <div class="lesson-header">
-              <h3>第三课：手把手打造专属知识库</h3>
-              <span class="lesson-time">2小时</span>
+              <h3>第三课：从 0 到 1 打造专属投研知识库</h3>
+              <span class="lesson-time">1.5小时</span>
             </div>
-            <p class="lesson-summary">跟练完成你的知识库雏形，让电脑资料开始「活起来」。</p>
+            <p class="lesson-summary">搭建可复用投研知识底盘。</p>
             <div class="lesson-points">
-              <div class="lesson-point"><strong>环境</strong> — 工具清单与基础设置，零基础可跟练</div>
-              <div class="lesson-point"><strong>构思</strong> — 功能边界与内容方向，形成专属方案</div>
-              <div class="lesson-point"><strong>实操</strong> — 跟练完成搭建，让资料「活起来」</div>
-              <div class="lesson-point"><strong>答疑</strong> — 一对一扫清卡点，确保落地可用</div>
+              <div class="lesson-point"><strong>范式转换</strong> — 从「直接提问」升级为「先造工具」，效率更高、结果更稳</div>
+              <div class="lesson-point"><strong>环境搭建</strong> — 以 Cursor 为核心，完成配置、初始化与首版落地</div>
+              <div class="lesson-point"><strong>自然语言开发</strong> — 按「意图→任务→验收」流程，快速生成基础知识库</div>
+              <div class="lesson-point"><strong>规则化产出</strong> — 用 Rules 与 README 约束模型，让结果持续贴合你的逻辑</div>
             </div>
             <div class="lesson-outcome">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              课后收获：可持续迭代的个人知识库 1.0
+              课后收获：跑通可运行知识库，掌握业务语言驱动 AI 编程闭环
             </div>
+          </div>
+        </div>
+
+        <!-- Lesson 4 -->
+        <div class="lesson-card">
+          <div class="lesson-num"><img src="Frame 4.png" alt="第四课配图"></div>
+          <div class="lesson-body">
+            <div class="lesson-header">
+              <h3>第四课：分组项目实战与成果展示</h3>
+              <span class="lesson-time">1.5小时</span>
+            </div>
+            <p class="lesson-summary">分组实战完成项目路演。</p>
+            <div class="lesson-points">
+              <div class="lesson-point"><strong>场景设计</strong> — 每组锁定 1-3 个真实投研场景，快速定义功能闭环</div>
+              <div class="lesson-point"><strong>迭代开发</strong> — 坚持「小步提交、可运行、可验收」，边做边修正报错与跑偏</div>
+              <div class="lesson-point"><strong>调优攻坚</strong> — 集中优化命中率、样式与交互等关键体验问题</div>
+              <div class="lesson-point"><strong>路演互评</strong> — 现场展示方案与踩坑经验，沉淀可复用方法</div>
+            </div>
+            <div class="lesson-outcome">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              课后收获：带走可持续进化的个人或小组投资知识库项目
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demo Cases -->
+      <div class="demo-cases">
+        <p class="section-eyebrow" style="color:#C57D51">你将获得</p>
+<h2 class="h2-lined">实战案例</h2>
+        <div class="demo-cases-grid">
+          <!-- Case 1: 投资大师 -->
+          <div class="demo-card">
+            <div class="demo-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+            </div>
+            <h3>「投资大师」：顶尖智慧的"任意门"</h3>
+            <p class="demo-card-tagline">想看查理·芒格、格雷厄姆、费雪等所有顶级大师对同一主题的看法</p>
+            <ul>
+              <li><strong>极速构建：</strong>从想法到 Demo 只用了十几分钟。</li>
+              <li><strong>深度交互：</strong>加入 AI 聊天功能，带着大师的知识库上下文提问，没有噪音，直击核心。</li>
+            </ul>
+            <a class="demo-link" href="https://gurus.congman.club" target="_blank">
+              体验地址：gurus.congman.club
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+          <!-- Case 2: 问老板 -->
+          <div class="demo-card">
+            <div class="demo-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            </div>
+            <h3>「问老板」：直击企业灵魂的一手资料</h3>
+            <p class="demo-card-tagline">做基本面研究，我最看重创始人的原话，而不是媒体的二次加工</p>
+            <ul>
+              <li><strong>纯净获取：</strong>把股东信、演讲、财报会纪要全部喂给 AI，剔除新闻噪音。</li>
+              <li><strong>精准溯源：</strong>相当于请了一个 24 小时在线的企业老板，随时回答他在某年某月对某项业务的真实思考。</li>
+            </ul>
+            <a class="demo-link" href="https://askboss.congman.club" target="_blank">
+              体验地址：askboss.congman.club
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
           </div>
         </div>
       </div>
